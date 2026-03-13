@@ -1,0 +1,932 @@
+/* --- Estilos del Header / Hero Section --- */
+header {
+    /* Un fondo oscuro y elegante hace que el texto y la foto resalten */
+    background: linear-gradient(135deg, var(--color-primario) 0%, #1a3a5c 100%); 
+    padding: 100px 20px;
+    overflow: hidden; /* Evita el scroll horizontal durante las animaciones */
+    display: flex;
+    align-items: center;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap; /* Permite que colapse en pantallas pequeñas */
+    width: 100%;
+}
+
+/* --- Contenedor de Texto y Animación --- */
+.hero-text {
+    flex: 1;
+    min-width: 320px;
+    /* Fondo oscuro semitransparente para mejor lectura */
+    background: rgba(0, 0, 0, 0.6); 
+    padding: 40px; /* Espacio interno para que no se vea apretado */
+    border-radius: 12px; /* Bordes redondeados */
+    backdrop-filter: blur(4px); /* Efecto vidrio esmerilado */
+    border: 1px solid rgba(255,255,255,0.1); /* Borde sutil */
+    /* La animación inicial del bloque de texto */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.hero-text h1 {
+    font-size: 4rem; /* Un tamaño imponente */
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #ffffff;
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6); /* Sombra para resaltar sobre el fondo */
+}
+
+.hero-text h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-acento); /* Usamos tu color dorado/beige */
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.9); /* Sombra fuerte para que el dorado se lea bien */
+    /* Retrasamos esta animación 0.3s para un efecto en cascada elegante */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeSlideUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) 0.3s forwards;
+}
+
+/* --- Contenedor de Imagen y Animación --- */
+.hero-image {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    justify-content: flex-end;
+    /* La imagen entra desde un lado con un ligero retraso */
+    opacity: 0;
+    transform: translateX(40px);
+    animation: fadeSlideSide 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) 0.4s forwards;
+}
+
+/* Estilizando la foto para que parezca de estudio */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.3); /* Sombra profunda */
+    border: 1px solid rgba(255,255,255,0.1); /* Brillo sutil en el borde */
+}
+
+/* --- Keyframes (La magia de las animaciones fluidas) --- */
+
+/* Movimiento de abajo hacia arriba */
+@keyframes fadeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Movimiento de lado a centro */
+@keyframes fadeSlideSide {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+/* --- Variables de Color (Ajústalas a tu diseño) --- */
+:root {
+    --color-primario: #0a2540; /* Un azul oscuro profesional */
+    --color-acento: #cdaa7d;   /* Un dorado o beige elegante */
+    --color-texto: #333333;
+    --color-fondo-tarjeta: #ffffff;
+    --sombra-suave: 0 4px 6px rgba(0,0,0,0.1);
+    --sombra-fuerte: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+/* --- Estilos Generales de la Sección --- */
+#servicios-legales {
+    padding: 60px 20px;
+    background-color: #f9f9f9; /* Un fondo gris muy sutil */
+    font-family: 'Arial', sans-serif; /* O la fuente que uses */
+}
+
+#servicios-legales .container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Estilos para el H2 Profesional y Elegante --- */
+#servicios-legales h2 {
+    position: relative;
+    text-align: center;
+    color: var(--color-primario);
+    font-size: 2.8rem;
+    font-weight: 800;
+    text-transform: uppercase; /* Da un aspecto más imponente y formal */
+    letter-spacing: 3px;      /* Espaciado elegante entre letras */
+    margin-bottom: 30px;
+    padding-bottom: 20px;     /* Espacio para nuestra decoración inferior */
+    
+    /* Tip Pro: Si puedes, usa una fuente Serif como 'Playfair Display' o 'Merriweather' para este H2 */
+    /* font-family: 'Playfair Display', serif; */
+}
+
+/* La línea decorativa con degradado dorado/beige */
+#servicios-legales h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Ancho de la línea */
+    height: 3px;
+    /* Un degradado que se desvanece a los lados para más elegancia */
+    background: linear-gradient(90deg, transparent, var(--color-acento), transparent);
+}
+
+/* El rombo central (diamante) estilo firma de abogados */
+#servicios-legales h2::before {
+    content: '';
+    position: absolute;
+    bottom: -5px; /* Lo alineamos justo sobre la línea */
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg); /* El rotate crea la forma de rombo */
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-fondo-tarjeta); /* Mismo color del fondo */
+    border: 3px solid var(--color-primario);      /* Borde azul oscuro */
+    z-index: 1;
+    /* Transición por si quieres agregarle un efecto hover al título más adelante */
+    transition: transform 0.4s ease, background-color 0.4s ease;
+}
+
+/* Pequeño detalle interactivo: el rombo gira un poco más al pasar el mouse por el título */
+#servicios-legales h2:hover::before {
+    transform: translateX(-50%) rotate(225deg);
+    background-color: var(--color-acento);
+}
+
+#servicios-legales .subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilos de la Cuadrícula (Grid) --- */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+/* --- Estilos de la Tarjeta de Servicio --- */
+.service-card {
+    background-color: var(--color-fondo-tarjeta);
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: var(--sombra-suave);
+    text-align: center;
+    border: 1px solid #eee;
+    
+    /* --- ANIMACIÓN BASE --- */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden; /* Para el efecto de brillo */
+}
+
+/* --- ANIMACIÓN INTERACTIVA (HOVER) --- */
+.service-card:hover {
+    transform: translateY(-8px); /* Eleva la tarjeta */
+    box-shadow: var(--sombra-fuerte); /* Intensifica la sombra */
+    border-color: var(--color-acento); /* Cambia el borde al color de acento */
+}
+
+/* Efecto de brillo de fondo al hover (opcional pero elegante) */
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, rgba(205, 170, 125, 0.1) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-card:hover::after {
+    opacity: 1;
+}
+
+/* --- Estilos del Contenedor del Ícono --- */
+.icon-box {
+    width: 80px;
+    height: 80px;
+    background-color: rgba(10, 37, 64, 0.05); /* Un fondo muy suave del primario */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 25px auto;
+    border: 2px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Animación del ícono al hover */
+.service-card:hover .icon-box {
+    background-color: var(--color-primario);
+    border-color: var(--color-acento);
+}
+
+/* --- Estilos del Ícono (FontAwesome) --- */
+.icon-box i {
+    font-size: 35px;
+    color: var(--color-primario);
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* El ícono cambia de color y gira levemente al hover */
+.service-card:hover .icon-box i {
+    color: var(--color-acento);
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* --- Estilos de Texto de la Tarjeta --- */
+.service-card h3 {
+    color: var(--color-primario);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.service-card p {
+    color: var(--color-texto);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+
+/* Estilos básicos para la lista */
+.cualidades-abogado {
+    list-style: none; /* Quitamos las viñetas por defecto */
+    padding: 0;
+    margin-top: 25px;
+}
+
+/* Estilo de cada elemento (texto oculto al inicio) */
+.cualidades-abogado li {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 18px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #333; /* Puedes ajustar el color a tu diseño */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: aparecerTexto 0.5s ease forwards;
+}
+
+/* El círculo de fondo del check */
+.cualidades-abogado li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%) scale(0);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #28a745; /* Verde clásico de "correcto" */
+    animation: popCirculo 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* El check (✓) dibujado con bordes CSS */
+.cualidades-abogado li::after {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: calc(50% - 2px);
+    width: 6px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: translateY(-50%) rotate(45deg);
+    opacity: 0;
+    animation: dibujarCheck 0.3s ease forwards;
+}
+
+/* Tiempos escalonados para que aparezcan uno por uno */
+.cualidades-abogado li:nth-child(1),
+.cualidades-abogado li:nth-child(1)::before,
+.cualidades-abogado li:nth-child(1)::after { animation-delay: 0.2s; }
+
+.cualidades-abogado li:nth-child(2),
+.cualidades-abogado li:nth-child(2)::before,
+.cualidades-abogado li:nth-child(2)::after { animation-delay: 0.6s; }
+
+.cualidades-abogado li:nth-child(3),
+.cualidades-abogado li:nth-child(3)::before,
+.cualidades-abogado li:nth-child(3)::after { animation-delay: 1.0s; }
+
+.cualidades-abogado li:nth-child(4),
+.cualidades-abogado li:nth-child(4)::before,
+.cualidades-abogado li:nth-child(4)::after { animation-delay: 1.4s; }
+
+/* --- Keyframes de las animaciones --- */
+
+@keyframes aparecerTexto {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes popCirculo {
+    to {
+        transform: translateY(-50%) scale(1);
+    }
+}
+
+@keyframes dibujarCheck {
+    0% {
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    50% {
+        height: 0;
+        width: 6px;
+        opacity: 1;
+    }
+    100% {
+        height: 11px;
+        width: 6px;
+        opacity: 1;
+    }
+}
+
+/* ===================== */
+/* VARIABLES */
+/* ===================== */
+
+:root{
+    --primary:#1A365D;
+    --accent:#C5A059;
+    --bg:#f4f6f9;
+    --text:#2b2b2b;
+    --white:#ffffff;
+
+    --shadow:0 8px 25px rgba(0,0,0,0.08);
+    --shadow-hover:0 15px 35px rgba(0,0,0,0.15);
+
+    --radius:12px;
+}
+
+/* ===================== */
+/* RESET */
+/* ===================== */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+body{
+font-family:'Inter',sans-serif;
+background:var(--bg);
+color:var(--text);
+line-height:1.7;
+}
+
+/* ===================== */
+/* NAVBAR */
+/* ===================== */
+/* --- Contenedor Principal de Navegación --- */
+nav {
+    background-color: #ffffff; /* Fondo limpio para que las cajitas resalten */
+    padding: 20px 0;
+    /* Una sombra general suave bajo toda la barra de navegación */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03); 
+    
+    /* Opcional: Esto hace que el menú se quede pegado arriba al hacer scroll */
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+}
+
+/* --- La Lista Flexbox --- */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Esta es la separación perfecta entre las "cajitas" */
+    flex-wrap: wrap; /* Permite que bajen de línea en celulares */
+}
+
+/* --- Las "Cajitas" (Los Enlaces) --- */
+nav a {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--color-primario);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 12px 24px;
+    
+    /* El aspecto de la caja en estado de reposo */
+    background-color: #f8f9fa; /* Un gris casi blanco, muy sutil */
+    border: 1px solid #e0e0e0; /* Borde visible para definir la caja */
+    border-radius: 8px; /* Bordes redondeados modernos */
+    
+    /* Preparación para las animaciones */
+    position: relative;
+    overflow: hidden; /* Oculta el brillo que sale de la caja */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02); /* Sombra base muy ligera */
+}
+
+/* --- Efectos Hover (Al pasar el mouse) --- */
+nav a:hover {
+    color: #ffffff;
+    background-color: var(--color-primario);
+    border-color: var(--color-primario);
+    transform: translateY(-3px); /* La caja se "levanta" hacia el usuario */
+    /* Sombra del color principal para darle un resplandor elegante */
+    box-shadow: 0 8px 15px rgba(10, 37, 64, 0.25); 
+}
+
+/* --- Animación Premium: Efecto de Brillo (Shine) --- */
+/* Creamos una franja de luz invisible a la izquierda de la caja */
+nav a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    /* Degradado de luz blanca transparente */
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: skewX(-25deg); /* Inclinamos la luz para más dinamismo */
+    transition: all 0.6s ease;
+}
+
+/* Al hacer hover, la franja de luz cruza de izquierda a derecha rápidamente */
+nav a:hover::before {
+    left: 200%;
+}
+/* ===================== */
+/* BOTONES DE CONTACTO */
+/* ===================== */
+/* --- Sección de Contacto (Fondo Oscuro Elegante) --- */
+#contacto {
+    padding: 80px 20px;
+    background-color: var(--color-primario); /* Usamos tu azul oscuro/primario */
+    color: #ffffff;
+    text-align: center;
+}
+
+.contacto-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#contacto h2 {
+    font-size: 2.8rem;
+    color: var(--color-acento); /* Dorado/Beige */
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+#contacto p {
+    font-size: 1.1rem;
+    color: #d1d8e0;
+    margin-bottom: 40px;
+}
+
+/* --- Tarjeta Blanca Flotante --- */
+.contact-info-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* Sombra profunda para que resalte */
+    color: var(--color-texto);
+    position: relative;
+    top: 20px; /* La tarjeta "sobresale" un poco hacia abajo */
+}
+
+/* --- Enlaces de Correo --- */
+.contact-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 35px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-links li {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 1.1rem;
+    text-align: left;
+}
+
+.contact-links i {
+    font-size: 2.2rem;
+    color: var(--color-primario);
+}
+
+.contact-links a {
+    color: var(--color-primario);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    color: var(--color-acento);
+}
+
+/* --- Contenedor de Botones --- */
+.contact-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Para que en móviles se ponga uno debajo del otro */
+}
+
+/* --- Estilo Base para los Botones --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 50px; /* Forma de píldora, muy moderna */
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- Botón WhatsApp (Verde Clásico) --- */
+.btn-whatsapp {
+    background-color: #25D366;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ebe57;
+    transform: translateY(-3px); /* Se levanta un poco */
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    color: white;
+}
+
+/* --- Botón Llamada Urgente (Rojo Animado) --- */
+.btn-urgente {
+    background-color: #d32f2f; /* Un rojo profesional y serio */
+    color: #ffffff;
+    /* La animación del latido de la sombra */
+    animation: latidoSombra 2s infinite; 
+}
+
+.btn-urgente:hover {
+    background-color: #b71c1c;
+    transform: translateY(-3px);
+    color: white;
+    animation: none; /* Al poner el mouse, la animación se detiene */
+    box-shadow: 0 8px 25px rgba(211, 47, 47, 0.6);
+}
+
+/* La animación del teléfono vibrando */
+.shake-icon {
+    animation: vibrarTelefono 0.5s ease-in-out infinite alternate;
+}
+
+.btn-urgente:hover .shake-icon {
+    animation: none; /* Detenemos la vibración al hacer hover */
+}
+
+/* --- Keyframes (Las Animaciones) --- */
+
+/* Efecto de radar/latido con la sombra roja */
+@keyframes latidoSombra {
+    0% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(211, 47, 47, 0); } /* La sombra se expande y desaparece */
+    100% { box-shadow: 0 0 0 0 rgba(211, 47, 47, 0); }
+}
+
+/* Efecto del teléfono sonando */
+@keyframes vibrarTelefono {
+    0% { transform: rotate(-15deg); }
+    100% { transform: rotate(15deg); }
+}
+
+/* ===================== */
+/* MAIN */
+/* ===================== */
+
+main{
+max-width:1100px;
+margin:auto;
+padding:40px 20px;
+}
+
+/* ===================== */
+/* SECCIONES */
+/* ===================== */
+
+section{
+background:white;
+padding:40px;
+margin-bottom:35px;
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+}
+
+section h2{
+font-size:28px;
+margin-bottom:20px;
+color:var(--primary);
+}
+
+/* ===================== */
+/* SERVICIOS */
+/* ===================== */
+
+.service-list{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:25px;
+list-style:none;
+}
+
+.service-list li{
+
+background:white;
+padding:25px;
+border-radius:var(--radius);
+position:relative;
+overflow:hidden;
+
+box-shadow:var(--shadow);
+
+transition:0.35s;
+}
+
+/* iluminación */
+
+.service-list li::before{
+
+content:"";
+
+position:absolute;
+top:0;
+left:-100%;
+
+width:100%;
+height:100%;
+
+background:linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,0.6),
+transparent
+);
+
+transition:0.6s;
+
+}
+
+/* hover */
+
+.service-list li:hover{
+
+transform:translateY(-6px);
+box-shadow:var(--shadow-hover);
+
+}
+
+.service-list li:hover::before{
+left:100%;
+}
+
+/* ===================== */
+/* FOOTER */
+/* ===================== */
+
+footer{
+background:var(--primary);
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+}
+
+/* ===================== */
+/* RESPONSIVE */
+/* ===================== */
+
+@media(max-width:900px){
+
+.hero-container{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-image img{
+width:240px;
+}
+
+}
+
+@media(max-width:600px){
+
+.hero-text h1{
+font-size:34px;
+}
+
+.hero-text h2{
+font-size:18px;
+}
+
+section{
+padding:25px;
+}
+
+nav ul{
+flex-wrap:wrap;
+gap:15px;
+}
+
+.contact-buttons{
+justify-content:center;
+}
+
+}
+
+/* --- Contenedor Principal Notarial --- */
+#servicios-notariales {
+    padding: 80px 20px;
+    background-color: #ffffff; /* Fondo blanco puro para contraste */
+    position: relative;
+}
+
+.notary-container {
+    max-width: 900px; /* Más estrecho para una lectura óptima estilo documento */
+    margin: 0 auto;
+    background-color: #fafaf9; /* Un beige ultra claro, casi blanco */
+    padding: 50px;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Sombra muy difuminada */
+    border: 1px solid #eaeaea;
+}
+
+/* --- Cabecera de la Sección --- */
+.notary-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.notary-header p {
+    color: #555;
+    font-size: 1.15rem;
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto 20px auto;
+}
+
+/* Detalle visual debajo de la introducción */
+.divisor-elegante {
+    height: 2px;
+    width: 80px;
+    background-color: var(--color-acento);
+    margin: 0 auto;
+}
+
+/* --- Lista Notarial y el "Hilo Dorado" --- */
+.notary-list {
+    position: relative;
+    padding-left: 20px;
+}
+
+/* La línea vertical que conecta los sellos */
+.notary-list::before {
+    content: '';
+    position: absolute;
+    left: 45px; /* Centrado con los íconos */
+    top: 10px;
+    bottom: 20px;
+    width: 2px;
+    background-color: rgba(205, 170, 125, 0.3); /* Color acento con transparencia */
+}
+
+/* --- Elemento Individual --- */
+.notary-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 35px;
+    position: relative;
+    z-index: 1; /* Para que quede sobre la línea vertical */
+    /* Animación de entrada al hacer hover */
+    transition: transform 0.3s ease;
+}
+
+.notary-item:hover {
+    transform: translateX(10px); /* Un sútil movimiento a la derecha */
+}
+
+/* --- El Sello Notarial (El Ícono) --- */
+.notary-seal {
+    min-width: 50px;
+    height: 50px;
+    background-color: var(--color-fondo-tarjeta);
+    border: 2px solid var(--color-acento);
+    border-radius: 50%; /* Lo hace redondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 25px;
+    box-shadow: 0 4px 10px rgba(205, 170, 125, 0.2);
+    /* Transición para el efecto de brillo */
+    transition: all 0.4s ease;
+}
+
+.notary-seal i {
+    color: var(--color-primario);
+    font-size: 1.2rem;
+    transition: transform 0.4s ease;
+}
+
+/* Efecto al pasar el mouse por el servicio */
+.notary-item:hover .notary-seal {
+    background-color: var(--color-acento);
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(205, 170, 125, 0.4);
+}
+
+.notary-item:hover .notary-seal i {
+    color: #ffffff;
+    transform: rotate(-10deg);
+}
+
+/* --- Textos del Servicio --- */
+.notary-text {
+    padding-top: 5px;
+    border-bottom: 1px dashed #e0e0e0; /* Una línea punteada que separa los servicios */
+    padding-bottom: 25px;
+    width: 100%;
+}
+
+/* Quitamos la línea punteada del último elemento */
+.notary-item:last-child .notary-text {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.notary-text h3 {
+    color: var(--color-primario);
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.notary-text p {
+    color: var(--color-texto);
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* --- Ajuste para móviles --- */
+@media (max-width: 768px) {
+    .notary-container {
+        padding: 30px 20px;
+    }
+    .notary-list::before {
+        left: 25px; /* Ajuste de la línea vertical */
+    }
+    .notary-seal {
+        min-width: 40px;
+        height: 40px;
+        margin-right: 15px;
+    }
+}
